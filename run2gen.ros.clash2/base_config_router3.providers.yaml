@@ -1,0 +1,23 @@
+rule-providers:
+  # https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash
+  speedtest: {behavior: classical, interval: 86400, path: ./ruleset/speedtest.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.yaml'}
+  openai: {behavior: classical, interval: 86400, path: ./ruleset/openai.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml'}
+  claude: {behavior: classical, interval: 86400, path: ./ruleset/claude.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml'}
+  gemini: {behavior: classical, interval: 86400, path: ./ruleset/gemini.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml'}
+  telegram_sg: {behavior: classical, interval: 86400, path: ./ruleset/telegram_sg.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TelegramSG/TelegramSG.yaml'}
+  bing: {behavior: classical, interval: 86400, path: ./ruleset/bing.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml'}
+  # https://github.com/Loyalsoldier/clash-rules
+  reject: {behavior: domain, interval: 86400, path: ./ruleset/reject.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt'}
+  direct: {behavior: domain, interval: 86400, path: ./ruleset/direct.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt'}
+  icloud: {behavior: domain, interval: 86400, path: ./ruleset/icloud.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt'}
+  apple: {behavior: domain, interval: 86400, path: ./ruleset/apple.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt'}
+  google: {behavior: domain, interval: 86400, path: ./ruleset/google.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt'}
+  proxy: {behavior: domain, interval: 86400, path: ./ruleset/proxy.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt'}
+  private: {behavior: domain, interval: 86400, path: ./ruleset/private.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt'}
+  gfw: {behavior: domain, interval: 86400, path: ./ruleset/gfw.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt'}
+  tld-not-cn: {behavior: domain, interval: 86400, path: ./ruleset/tld-not-cn.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt'}
+  telegramcidr: {behavior: ipcidr, interval: 86400, path: ./ruleset/telegramcidr.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt'}
+  cncidr: {behavior: ipcidr, interval: 86400, path: ./ruleset/cncidr.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt'}
+  lancidr: {behavior: ipcidr, interval: 86400, path: ./ruleset/lancidr.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt'}
+  applications: {behavior: classical, interval: 86400, path: ./ruleset/applications.yaml, type: http, url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'}
+

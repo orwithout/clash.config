@@ -1,0 +1,40 @@
+mode: Rule
+log-level: silent
+allow-lan: true
+bind-address: "*"
+port: 3456
+socks-port: 3457
+mixed-port: 3458
+redir-port: 3459
+# ui source : 
+# https://github.com/haishanh/yacd/archive/gh-pages.zip
+# 下面两个需要meta 核心：
+# https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip
+# https://github.com/MetaCubeX/metacubexd/archive/gh-pages.zip
+external-controller: '0.0.0.0:3450'
+external-ui: ui
+secret: ''
+
+
+cfw-latency-url: http://cp.cloudflare.com/generate_204
+cfw-latency-timeout: 3000
+cfw-latency-type: 1
+cfw-conn-break-strategy: true
+
+
+clash-for-android:
+  ui-subtitle-pattern: '[一-龥]{2,4}'
+experimental:
+  ignore-resolve-fail: true
+tun:
+   enable: true
+   stack: system
+auto-redir:
+    enable: true
+    auto-route: true
+url-rewrite:
+- ^https?:\\/\\/(www.)?(g|google)\\.cn https://www.google.com 302
+- ^https?:\\/\\/(ditu|maps).google\\.cn https://maps.google.com 302
+
+
+
