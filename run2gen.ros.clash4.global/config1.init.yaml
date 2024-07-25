@@ -1,4 +1,4 @@
-mode: Rule
+mode: global
 log-level: silent
 allow-lan: true
 bind-address: "*"

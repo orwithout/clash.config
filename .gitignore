@@ -1,1 +1,3 @@
-run2gen*/run.py
+run2gen*/env_local*
+__pycache__
+run2gen*/output

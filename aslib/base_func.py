@@ -4,6 +4,7 @@ import re
 import requests
 import time
 import shutil
+import zipfile
 #pip install requests
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -207,6 +208,8 @@ def deep_merge_dict(orig_dict, new_dict):
         else:
             orig_dict[key] = new_val
 def merge_yaml_sections(input_files, root_field, output_file, merge_dicts=True):
+    # 确保输出文件所在目录存在
+    os.makedirs(os.path.dirname(output_file), exist_ok=True) if os.path.dirname(output_file) else None
     # 初始化为字典或列表，取决于我们期待的合并类型
     merged_data = {}
 
@@ -274,3 +277,41 @@ def sort_yaml_section(input_file, output_file, section, field, rule):
         with open(output_file, 'w', encoding='utf-8') as file:
             yaml.dump({section: sorted_section}, file, allow_unicode=True)
 
+
+
+
+
+
+
+
+def unzip_and_rename(zip_file, target_dir):
+    # 创建目标目录（如果不存在）
+    os.makedirs(target_dir, exist_ok=True)
+
+    # 打开 ZIP 文件
+    with zipfile.ZipFile(zip_file, 'r') as zip_ref:
+        # 获取压缩文件中的根目录
+        root_dir = os.path.commonprefix(zip_ref.namelist())
+
+        # 提取根目录名
+        if root_dir.endswith('/'):
+            root_dir = root_dir[:-1]  # 去掉末尾的斜杠
+
+        # 将根目录名与目标目录拼接
+        final_target_dir = os.path.join(target_dir, os.path.basename(zip_file).replace('.zip', ''))
+
+        # 创建最终的目标目录
+        os.makedirs(final_target_dir, exist_ok=True)
+
+        # 解压缩到最终目标目录
+        for member in zip_ref.namelist():
+            if member.startswith(root_dir):
+                # 去掉根目录前缀，保留相对路径
+                rel_path = os.path.relpath(member, root_dir)
+                dest_path = os.path.join(final_target_dir, rel_path)
+                # 如果是目录，创建目录；如果是文件，写入文件
+                if member.endswith('/'):
+                    os.makedirs(dest_path, exist_ok=True)
+                else:
+                    with open(dest_path, 'wb') as f:
+                        f.write(zip_ref.read(member))
